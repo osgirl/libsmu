@@ -12,6 +12,10 @@ set(LIBSMU_VERSION_MINOR 8)
 set(LIBSMU_VERSION_PATCH 9)
 set(LIBSMU_VERSION ${LIBSMU_VERSION_MAJOR}.${LIBSMU_VERSION_MINOR}.${LIBSMU_VERSION_PATCH})
 
+# generate version header
+configure_file(src/version.hpp.in ${CMAKE_CURRENT_BINARY_DIR}/src/version.hpp @ONLY)
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/src/)
+
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic")
 endif()
