@@ -6,7 +6,6 @@
 
 import atexit
 from collections import defaultdict
-import operator
 import warnings
 
 import _pysmu
