@@ -22,6 +22,20 @@ make
 sudo make install
 ```
 
+##### Docs
+
+Doxygen-based documentation can be built if enabled via the
+following cmake command before running make:
+
+```
+cmake -DWITH_DOC=ON ..
+```
+
+After make is run, the generated documentation files can then be found in the
+html subdir of the build directory.
+
+##### Python
+
 Bindings for python2.7 are also available and are built if enabled via the
 following cmake command before running make:
 
