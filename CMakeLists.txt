@@ -6,6 +6,8 @@ else()
 endif()
 project(libsmu CXX C)
 
+option(WITH_DOC "Generate documentation with Doxygen" OFF)
+
 # libsmu versioning
 set(LIBSMU_VERSION_MAJOR 0)
 set(LIBSMU_VERSION_MINOR 9)
@@ -83,7 +85,22 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux" AND INSTALL_UDEV_RULES)
 	install(FILES ${LIBSMU_UDEV_RULES} DESTINATION ${UDEV_RULES_PATH})
 endif()
 
-# Create an installer for OS X
+# generate API docs with doxygen
+if(WITH_DOC)
+	find_package(Doxygen REQUIRED)
+	configure_file(${CMAKE_CURRENT_SOURCE_DIR}/dist/Doxyfile.in ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile @ONLY)
+	set(HTML_DEST_DIR ${CMAKE_CURRENT_BINARY_DIR}/html)
+
+	add_custom_target(doc
+		COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile
+		WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+		COMMENT "Generating API documentation with Doxygen" VERBATIM
+	)
+
+	install(DIRECTORY ${HTML_DEST_DIR} DESTINATION ${CMAKE_INSTALL_DOCDIR})
+endif()
+
+# create an installer for OS X
 if(APPLE AND BUILD_OSX_PKG)
 	set(LIBSMU_PKG ${CMAKE_CURRENT_BINARY_DIR}/libsmu-${LIBSMU_VERSION}.pkg)
 	set(LIBSMU_TEMP_PKG ${CMAKE_CURRENT_BINARY_DIR}/libsmu-${LIBSMU_VERSION}-temp.pkg)
