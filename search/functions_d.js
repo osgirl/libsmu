@@ -1,19 +1,4 @@
 var searchData=
 [
-  ['samba_5fmode',['samba_mode',['../classsmu_1_1Device.html#aaebb9455a2699d5f8dd38209291a67ba',1,'smu::Device']]],
-  ['scan',['scan',['../classsmu_1_1Session.html#acc70d95d0c0e95be86eb5f4e1969b178',1,'smu::Session']]],
-  ['serial',['serial',['../classsmu_1_1Device.html#ab887f22f65395684b12bdd1d4465b1a1',1,'smu::Device']]],
-  ['set_5fmode',['set_mode',['../classsmu_1_1Device.html#a93f9017d3356cd9c8ee387724f36dc05',1,'smu::Device']]],
-  ['signal',['signal',['../classsmu_1_1Device.html#a4ecee69bc241b53855debf994abb6575',1,'smu::Device::signal()'],['../classsmu_1_1Signal.html#a142892238f83422c7546d3fece09b1e6',1,'smu::Signal::Signal()']]],
-  ['source_5fbuffer',['source_buffer',['../classsmu_1_1Signal.html#a04eddbfe1ad95701eb3e892c1da6e746',1,'smu::Signal']]],
-  ['source_5fcallback',['source_callback',['../classsmu_1_1Signal.html#a3c745f24d734dd2636d69da4890db96f',1,'smu::Signal']]],
-  ['source_5fconstant',['source_constant',['../classsmu_1_1Signal.html#accb3f47ebcfd1f4c5c37e2fdcdbb8817',1,'smu::Signal']]],
-  ['source_5fsawtooth',['source_sawtooth',['../classsmu_1_1Signal.html#a46171ff2bc173ce8fa75e969f50e41b0',1,'smu::Signal']]],
-  ['source_5fsine',['source_sine',['../classsmu_1_1Signal.html#a8ae1777330b6617c1ba30a09d4e6f53e',1,'smu::Signal']]],
-  ['source_5fsquare',['source_square',['../classsmu_1_1Signal.html#a5f3885c782fdd37856c3c73c07b71687',1,'smu::Signal']]],
-  ['source_5fstairstep',['source_stairstep',['../classsmu_1_1Signal.html#a3ebc4defb5963630d3c40ba4e24fa8c0',1,'smu::Signal']]],
-  ['source_5ftriangle',['source_triangle',['../classsmu_1_1Signal.html#ac1b11fca61e93e1d49ae92cd0f57d0c9',1,'smu::Signal']]],
-  ['start',['start',['../classsmu_1_1Session.html#a89f53f67b1ba9bf64b3d9b7010fa9a2b',1,'smu::Session']]],
-  ['start_5fusb_5fthread',['start_usb_thread',['../classsmu_1_1Session.html#a90204dc702f55c24e75c2c59769981fe',1,'smu::Session']]],
-  ['sync',['sync',['../classsmu_1_1Device.html#a3011b5d22927b5ff4e3dc6167c6aa8bf',1,'smu::Device']]]
+  ['unlock',['unlock',['../classsmu_1_1Device.html#af14e11dc0cb616590e3a7497030860ed',1,'smu::Device']]]
 ];

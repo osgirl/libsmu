@@ -82,44 +82,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
 <ul><li class="level1"><a href="#arch">Architecture and design</a></li>
-<li class="level1"><a href="#session">Using sessions</a><ul><li class="level2"><a href="#session_creation">Session creation</a></li>
-<li class="level2"><a href="#session_devices">Interacting with devices in a session</a></li>
-</ul>
-</li>
+<li class="level1"><a href="#session">Using sessions</a></li>
 <li class="level1"><a href="#devices">Device usage</a><ul><li class="level2"><a href="#reading_data">Reading data from a device</a></li>
 <li class="level2"><a href="#writing_data">Writing data to a device</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#signals">Signals</a></li>
 </ul>
 </div>
 <div class="textblock"><h1><a class="anchor" id="arch"></a>
 Architecture and design</h1>
 <h1><a class="anchor" id="session"></a>
 Using sessions</h1>
-<p>TODO</p>
-<h2><a class="anchor" id="session_creation"></a>
-Session creation</h2>
-<p>TODO</p>
-<h2><a class="anchor" id="session_devices"></a>
-Interacting with devices in a session</h2>
-<p>TODO</p>
+<p>The session object allows for controlling groups of devices in a near synchronous format.</p>
 <h1><a class="anchor" id="devices"></a>
 Device usage</h1>
-<p>TODO</p>
 <h2><a class="anchor" id="reading_data"></a>
 Reading data from a device</h2>
-<p>TODO</p>
-<h2><a class="anchor" id="writing_data"></a>
+<div class="fragment"><div class="line">    <span class="comment">// Create session object and scan system for compatible devices then add</span></div><div class="line">    <span class="comment">// them to the session. Note that this currently doesn&#39;t handle returned</span></div><div class="line">    <span class="comment">// errors.</span></div><div class="line">    Session* session = <span class="keyword">new</span> Session();</div><div class="line">    session-&gt;scan();</div><div class="line">    session-&gt;add_all();</div><div class="line"></div><div class="line">    <span class="comment">// Grab the first device from the session (we&#39;re assuming one exists).</span></div><div class="line">    <span class="keyword">auto</span> dev = *(session-&gt;m_devices.begin());</div><div class="line"></div><div class="line">    <span class="comment">// Run session at the default device rate.</span></div><div class="line">    session-&gt;configure(dev-&gt;get_default_rate());</div><div class="line">    <span class="comment">// Run session in continuous mode.</span></div><div class="line">    session-&gt;start(0);</div><div class="line"></div><div class="line">    <span class="comment">// Data to be read from the device is formatted into a vector of four</span></div><div class="line">    <span class="comment">// floats in an array, specifically in the format</span></div><div class="line">    <span class="comment">// &lt;Chan A voltage, Chan A current, Chan B coltage, Chan B current&gt;.</span></div><div class="line">    std::vector&lt;std::array&lt;float, 4&gt;&gt; buf;</div><div class="line"></div><div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div><div class="line">        <span class="comment">// Read 1024 samples at a time from the device.</span></div><div class="line">        <span class="comment">// Note that the timeout (3rd parameter to read() defaults to 0</span></div><div class="line">        <span class="comment">// (nonblocking mode) so the number of samples returned won&#39;t</span></div><div class="line">        <span class="comment">// necessarily be 1024.</span></div><div class="line">        dev-&gt;read(buf, 1024);</div><div class="line"></div><div class="line">        <span class="comment">// Iterate over all returned samples, doesn&#39;t have to be 1024).</span></div><div class="line">        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i: buf) {</div><div class="line">            printf(<span class="stringliteral">&quot;Channel A: Voltage %f Current %f\n&quot;</span>, i[0], i[1]);</div><div class="line">            printf(<span class="stringliteral">&quot;Channel B: Voltage %f Current %f\n&quot;</span>, i[2], i[3]);</div><div class="line">        }</div><div class="line">    };</div><div class="line">}</div></div><!-- fragment --><h2><a class="anchor" id="writing_data"></a>
 Writing data to a device</h2>
-<p>TODO</p>
-<h1><a class="anchor" id="signals"></a>
-Signals</h1>
-<p>TODO </p>
-</div></div><!-- contents -->
+<div class="fragment"><div class="line">    <span class="comment">// Create session object and scan system for compatible devices then add</span></div><div class="line">    <span class="comment">// them to the session. Note that this currently doesn&#39;t handle returned</span></div><div class="line">    <span class="comment">// errors.</span></div><div class="line">    Session* session = <span class="keyword">new</span> Session();</div><div class="line">    session-&gt;scan();</div><div class="line">    session-&gt;add_all();</div><div class="line"></div><div class="line">    <span class="comment">// Grab the first device from the session (we&#39;re assuming one exists).</span></div><div class="line">    <span class="keyword">auto</span> dev = *(session-&gt;m_devices.begin());</div><div class="line"></div><div class="line">    <span class="comment">// Run session at the default device rate.</span></div><div class="line">    session-&gt;configure(dev-&gt;get_default_rate());</div><div class="line">    <span class="comment">// Run session in continuous mode.</span></div><div class="line">    session-&gt;start(0);</div><div class="line"></div><div class="line">    <span class="comment">// Data to be written to the device is formatted into a vector of floats.</span></div><div class="line">    <span class="comment">// Both channels can be written to simultaneously depending on what mode</span></div><div class="line">    <span class="comment">// they&#39;re currently in.</span></div><div class="line">    std::vector&lt;float&gt; buf1;</div><div class="line">    std::vector&lt;float&gt; buf2;</div><div class="line"></div><div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div><div class="line">        <span class="comment">// Generic function to grab new data to write to the device.</span></div><div class="line">        refill_data(buf1);</div><div class="line">        refill_data(buf2);</div><div class="line"></div><div class="line">        <span class="comment">// Write data channel A of the device.</span></div><div class="line">        <span class="comment">// Note that the timeout (3rd parameter to write() defaults to 0 (nonblocking mode).</span></div><div class="line">        dev-&gt;write(buf1, 0);</div><div class="line">        <span class="comment">// Write data to channel B of the device.</span></div><div class="line">        dev-&gt;write(buf2, 1);</div><div class="line"></div><div class="line">        <span class="comment">// Read 1024 samples at a time from the device.</span></div><div class="line">        dev-&gt;read(buf, 1024);</div><div class="line"></div><div class="line">        <span class="comment">// Iterate over all returned samples, doesn&#39;t have to be 1024).</span></div><div class="line">        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i: buf) {</div><div class="line">            printf(<span class="stringliteral">&quot;Channel A: Voltage %f Current %f\n&quot;</span>, i[0], i[1]);</div><div class="line">            printf(<span class="stringliteral">&quot;Channel B: Voltage %f Current %f\n&quot;</span>, i[2], i[3]);</div><div class="line">        }</div><div class="line">    };</div><div class="line">}</div></div><!-- fragment --> </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jul 11 2016 08:53:29 for libsmu by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jul 14 2016 08:25:19 for libsmu by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

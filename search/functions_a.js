@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['off',['off',['../classsmu_1_1Device.html#a65a4d09c13f1b16453db49d919f79904',1,'smu::Device']]],
-  ['on',['on',['../classsmu_1_1Device.html#a268a9b03f25704e7026841a74c468759',1,'smu::Device']]]
+  ['probe_5fdevice',['probe_device',['../classsmu_1_1Session.html#a7c5069bf9f14d7abf5eb243ccde39eff',1,'smu::Session']]]
 ];

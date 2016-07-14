@@ -130,8 +130,14 @@ virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class
 <tr class="memitem:a93f9017d3356cd9c8ee387724f36dc05"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsmu_1_1Device.html#a93f9017d3356cd9c8ee387724f36dc05">set_mode</a> (unsigned channel, unsigned mode)=0</td></tr>
 <tr class="memdesc:a93f9017d3356cd9c8ee387724f36dc05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the mode of the specified channel.  <a href="#a93f9017d3356cd9c8ee387724f36dc05">More...</a><br /></td></tr>
 <tr class="separator:a93f9017d3356cd9c8ee387724f36dc05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d9a0c8c676dffe33c73cb008083705a"><td class="memItemLeft" align="right" valign="top">virtual ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsmu_1_1Device.html#a3d9a0c8c676dffe33c73cb008083705a">read</a> (std::vector&lt; std::array&lt; float, 4 &gt;&gt; &amp;buf, size_t samples, unsigned timeout=0)=0</td></tr>
+<tr class="memdesc:a3d9a0c8c676dffe33c73cb008083705a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all signal samples from a device.  <a href="#a3d9a0c8c676dffe33c73cb008083705a">More...</a><br /></td></tr>
+<tr class="separator:a3d9a0c8c676dffe33c73cb008083705a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b41309b38df40c3fb8de7240d2bbc97"><td class="memItemLeft" align="right" valign="top">virtual ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsmu_1_1Device.html#a8b41309b38df40c3fb8de7240d2bbc97">write</a> (std::vector&lt; float &gt; &amp;buf, unsigned channel, unsigned timeout)=0</td></tr>
+<tr class="memdesc:a8b41309b38df40c3fb8de7240d2bbc97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write data to a specified channel of the device.  <a href="#a8b41309b38df40c3fb8de7240d2bbc97">More...</a><br /></td></tr>
+<tr class="separator:a8b41309b38df40c3fb8de7240d2bbc97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0d035b18c9ae682c9cd651f94417274"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsmu_1_1Device.html#ae0d035b18c9ae682c9cd651f94417274">ctrl_transfer</a> (unsigned bmRequestType, unsigned bRequest, unsigned wValue, unsigned wIndex, unsigned char *data, unsigned wLength, unsigned timeout)</td></tr>
-<tr class="memdesc:ae0d035b18c9ae682c9cd651f94417274"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get data from all channels and signals of a device.  <a href="#ae0d035b18c9ae682c9cd651f94417274">More...</a><br /></td></tr>
+<tr class="memdesc:ae0d035b18c9ae682c9cd651f94417274"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a raw USB control transfer on the underlying USB device.  <a href="#ae0d035b18c9ae682c9cd651f94417274">More...</a><br /></td></tr>
 <tr class="separator:ae0d035b18c9ae682c9cd651f94417274"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaebb9455a2699d5f8dd38209291a67ba"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsmu_1_1Device.html#aaebb9455a2699d5f8dd38209291a67ba">samba_mode</a> ()=0</td></tr>
 <tr class="memdesc:aaebb9455a2699d5f8dd38209291a67ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Force the device into SAM-BA bootloader mode.  <a href="#aaebb9455a2699d5f8dd38209291a67ba">More...</a><br /></td></tr>
@@ -447,14 +453,7 @@ On error, a negative errno code is returned. </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Get data from all channels and signals of a device. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">samples</td><td>Number of samples to return. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Amount of time in milliseconds to wait for samples to be available. If 0, return immediately. Perform a raw USB control transfer on the underlying USB device. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Perform a raw USB control transfer on the underlying USB device. </p>
 <dl class="section return"><dt>Returns</dt><dd>Passes through the return value of the underlying libusb_control_transfer method. See the libusb_control_transfer() docs for parameter descriptions. </dd></dl>
 
 </div>
@@ -512,6 +511,59 @@ On error, a negative errno code is returned. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>On success, 0 is returned. </dd>
 <dd>
 On error, a negative errno code is returned. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3d9a0c8c676dffe33c73cb008083705a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ssize_t smu::Device::read </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::array&lt; float, 4 &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>samples</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get all signal samples from a device. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buf</td><td>Buffer object to store sample values into. </td></tr>
+    <tr><td class="paramname">samples</td><td>Number of samples to read. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Amount of time in milliseconds to wait for samples to be available. If 0 (the default), return immediately. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>On success, the number of samples read. </dd>
+<dd>
+On error, a negative integer is returned relating to the error status. </dd></dl>
 
 </div>
 </div>
@@ -724,6 +776,59 @@ On error, a negative errno code is returned. </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a8b41309b38df40c3fb8de7240d2bbc97"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ssize_t smu::Device::write </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; float &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>timeout</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Write data to a specified channel of the device. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buf</td><td>Buffer of samples to write to the specified channel. </td></tr>
+    <tr><td class="paramname">channel</td><td>Channel to write samples to. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Amount of time in milliseconds to wait for samples to be available. If 0, return immediately. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>On success, the number of samples written. </dd>
+<dd>
+On error, a negative integer is returned relating to the error status. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a036087f31acc01c3f617005c42d71087"></a>
 <div class="memitem">
 <div class="memproto">
@@ -765,7 +870,7 @@ On error, a negative integer is returned relating to the error status. </dd></dl
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jul 11 2016 08:53:29 for libsmu by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jul 14 2016 08:25:19 for libsmu by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

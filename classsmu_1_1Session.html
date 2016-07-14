@@ -196,10 +196,6 @@ std::function&lt; void(<a class="el" href="classsmu_1_1Device.html">Device</a> *
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a90204dc702f55c24e75c2c59769981fe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a90204dc702f55c24e75c2c59769981fe"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsmu_1_1Session.html#a90204dc702f55c24e75c2c59769981fe">start_usb_thread</a> ()</td></tr>
-<tr class="memdesc:a90204dc702f55c24e75c2c59769981fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawn thread for USB transaction handling. <br /></td></tr>
-<tr class="separator:a90204dc702f55c24e75c2c59769981fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c5069bf9f14d7abf5eb243ccde39eff"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classsmu_1_1Device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsmu_1_1Session.html#a7c5069bf9f14d7abf5eb243ccde39eff">probe_device</a> (libusb_device *usb_dev)</td></tr>
 <tr class="memdesc:a7c5069bf9f14d7abf5eb243ccde39eff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identify devices supported by libsmu.  <a href="#a7c5069bf9f14d7abf5eb243ccde39eff">More...</a><br /></td></tr>
 <tr class="separator:a7c5069bf9f14d7abf5eb243ccde39eff"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -215,7 +211,7 @@ unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <tr class="separator:ae6e0c6984c7567b31b7a7f544b27f9c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d36179ca4dcc9859025e5a97858196c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0d36179ca4dcc9859025e5a97858196c"></a>
 std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsmu_1_1Session.html#a0d36179ca4dcc9859025e5a97858196c">m_usb_thread_loop</a></td></tr>
-<tr class="memdesc:a0d36179ca4dcc9859025e5a97858196c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag for controlling USB event handling. <br /></td></tr>
+<tr class="memdesc:a0d36179ca4dcc9859025e5a97858196c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag for controlling USB event handling. USB event handling loop will be run while m_usb_thread_loop is true. <br /></td></tr>
 <tr class="separator:a0d36179ca4dcc9859025e5a97858196c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2f32749c5d2837c433ca0817e6a5e08"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab2f32749c5d2837c433ca0817e6a5e08"></a>
 std::thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsmu_1_1Session.html#ab2f32749c5d2837c433ca0817e6a5e08">m_usb_thread</a></td></tr>
@@ -599,7 +595,7 @@ On error, a negative errno code is returned. </dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jul 11 2016 08:53:29 for libsmu by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jul 14 2016 08:25:19 for libsmu by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
