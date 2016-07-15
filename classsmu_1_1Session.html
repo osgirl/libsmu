@@ -181,6 +181,10 @@ std::set&lt; <a class="el" href="classsmu_1_1Device.html">Device</a> * &gt;&#160
 unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsmu_1_1Session.html#a75b886bf85b1522b0a070585dc0d1717">m_active_devices</a></td></tr>
 <tr class="memdesc:a75b886bf85b1522b0a070585dc0d1717"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of devices currently streaming samples. <br /></td></tr>
 <tr class="separator:a75b886bf85b1522b0a070585dc0d1717"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98abe9036a8ccf4e369a26d296b1942c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a98abe9036a8ccf4e369a26d296b1942c"></a>
+unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsmu_1_1Session.html#a98abe9036a8ccf4e369a26d296b1942c">m_queue_size</a> = 10000</td></tr>
+<tr class="memdesc:a98abe9036a8ccf4e369a26d296b1942c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of input/output sample queues for every device. Alter this if necessary to make continuous data flow work for the target usage. The default is approximately 100ms worth of samples. <br /></td></tr>
+<tr class="separator:a98abe9036a8ccf4e369a26d296b1942c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15a57501ec06fbfda3f4963531cedc4e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a15a57501ec06fbfda3f4963531cedc4e"></a>
 std::function&lt; void(unsigned)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsmu_1_1Session.html#a15a57501ec06fbfda3f4963531cedc4e">m_completion_callback</a></td></tr>
 <tr class="memdesc:a15a57501ec06fbfda3f4963531cedc4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback run via the USB thread on session completion. Called with the current value of m_cancellation as an argument, i.e. if the parameter is non-zero we are waiting to complete a cancelled session. <br /></td></tr>
@@ -590,12 +594,12 @@ On error, a negative errno code is returned. </dd></dl>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/timh/code/adi/libsmu/include/libsmu/<a class="el" href="libsmu_8hpp_source.html">libsmu.hpp</a></li>
+<li>/home/timh/libsmu/include/libsmu/<a class="el" href="libsmu_8hpp_source.html">libsmu.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 14 2016 08:25:19 for libsmu by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 15 2016 10:15:24 for libsmu by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

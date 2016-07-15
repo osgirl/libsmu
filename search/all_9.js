@@ -16,6 +16,7 @@ var searchData=
   ['m_5flock',['m_lock',['../classsmu_1_1Session.html#ac4570213847cccd9021c1e51b72fec27',1,'smu::Session']]],
   ['m_5flock_5fdevlist',['m_lock_devlist',['../classsmu_1_1Session.html#a21ca39f64d0f74e80a8d3e6e7e14e949',1,'smu::Session']]],
   ['m_5fout_5fsampleno',['m_out_sampleno',['../classsmu_1_1Device.html#a2750a75063d4a9a93f9d9918f8f5e91b',1,'smu::Device']]],
+  ['m_5fqueue_5fsize',['m_queue_size',['../classsmu_1_1Session.html#a98abe9036a8ccf4e369a26d296b1942c',1,'smu::Session']]],
   ['m_5frequested_5fsampleno',['m_requested_sampleno',['../classsmu_1_1Device.html#a5aa7aeec6ab96b740f3d23873b651eae',1,'smu::Device']]],
   ['m_5fserial',['m_serial',['../classsmu_1_1Device.html#aec3bd15f9bb36d2d7b3652436b77a9c6',1,'smu::Device']]],
   ['m_5fsession',['m_session',['../classsmu_1_1Device.html#aa7e58344b36c0625c5eb93506840ac33',1,'smu::Device']]],

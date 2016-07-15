@@ -7,7 +7,7 @@ var searchData=
   ['session',['Session',['../classsmu_1_1Session.html',1,'smu']]],
   ['set_5fmode',['set_mode',['../classsmu_1_1Device.html#a93f9017d3356cd9c8ee387724f36dc05',1,'smu::Device']]],
   ['signal',['Signal',['../classsmu_1_1Signal.html',1,'smu']]],
-  ['signal',['Signal',['../classsmu_1_1Signal.html#a142892238f83422c7546d3fece09b1e6',1,'smu::Signal::Signal()'],['../classsmu_1_1Device.html#a4ecee69bc241b53855debf994abb6575',1,'smu::Device::signal()']]],
+  ['signal',['signal',['../classsmu_1_1Device.html#a4ecee69bc241b53855debf994abb6575',1,'smu::Device::signal()'],['../classsmu_1_1Signal.html#a142892238f83422c7546d3fece09b1e6',1,'smu::Signal::Signal()']]],
   ['signal_5fcount',['signal_count',['../structsl__channel__info.html#a6998f2b6e35c3926f48441299757fb19',1,'sl_channel_info']]],
   ['simv',['SIMV',['../libsmu_8hpp.html#a5ba261125d0e6e60801792a10232cc09a25b42ee6c5996cb5011aa1ee883b1153',1,'libsmu.hpp']]],
   ['sl_5fchannel_5finfo',['sl_channel_info',['../structsl__channel__info.html',1,'sl_channel_info'],['../libsmu_8hpp.html#a672bc34f1012e05bfcdef81690708a7d',1,'sl_channel_info():&#160;libsmu.hpp']]],
