@@ -1,4 +1,4 @@
-os: Visual Studio 2015
+#os: Visual Studio 2015
 clone_depth: 1
 
 configuration:
@@ -26,20 +26,20 @@ build_script:
   # see https://github.com/libusb/libusb/issues/86
   - ps: pushd "C:\libusb"
   - git checkout hotplug
-  - msbuild msvc\libusb_2015.sln /p:Platform=Win32 /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-  - msbuild msvc\libusb_2015.sln /p:Platform=x64 /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+  - msbuild msvc\libusb_2013.sln /p:Platform=Win32 /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+  - msbuild msvc\libusb_2013.sln /p:Platform=x64 /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
   - ps: popd
 
   # build 32-bit version of libsmu -- python bindings are built separately
   - mkdir c:\projects\libsmu\32
   - cd c:\projects\libsmu\32
-  - cmake -G "Visual Studio 14 2015" \
+  - cmake -G "Visual Studio 12 2013" \
     -DCMAKE_BUILD_TYPE:STRING=%CONFIGURATION% \
     -DCMAKE_SYSTEM_PREFIX_PATH="C:" \
     -DLIBUSB_LIBRARIES="C:\\libusb\\Win32\\Release\\lib\\libusb-1.0.lib" \
     -DLIBUSB_INCLUDE_DIRS="C:\\libusb\\libusb" \
     -DBOOST_ROOT="C:\\Libraries\\boost_1_62_0" \
-    -DBOOST_LIBRARYDIR="C:\\Libraries\\boost_1_62_0\\lib32-msvc-14.0" \
+    -DBOOST_LIBRARYDIR="C:\\Libraries\\boost_1_62_0\\lib32-msvc-12.0" \
     -DBoost_USE_STATIC_LIBS=ON \
     -DBUILD_STATIC_LIB=ON \
     -DBUILD_EXAMPLES=ON \
@@ -54,13 +54,13 @@ build_script:
   # build 64-bit version of libsmu -- python bindings are built separately
   - mkdir c:\projects\libsmu\64
   - cd c:\projects\libsmu\64
-  - cmake -G "Visual Studio 14 2015 Win64" \
+  - cmake -G "Visual Studio 12 2013 Win64" \
     -DCMAKE_BUILD_TYPE:STRING=%CONFIGURATION% \
     -DCMAKE_SYSTEM_PREFIX_PATH="C:" \
     -DLIBUSB_LIBRARIES="C:\\libusb\\x64\\Release\\lib\\libusb-1.0.lib" \
     -DLIBUSB_INCLUDE_DIRS="C:\\libusb\\libusb" \
     -DBOOST_ROOT="C:\\Libraries\\boost_1_62_0" \
-    -DBOOST_LIBRARYDIR="C:\\Libraries\\boost_1_62_0\\lib64-msvc-14.0" \
+    -DBOOST_LIBRARYDIR="C:\\Libraries\\boost_1_62_0\\lib64-msvc-12.0" \
     -DBoost_USE_STATIC_LIBS=ON \
     -DBUILD_STATIC_LIB=ON \
     -DBUILD_EXAMPLES=ON \
@@ -107,12 +107,12 @@ build_script:
   - copy ..\tests\run-tests.bat c:\libsmu\32
   - copy ..\tests\run-tests.bat c:\libsmu\64
   # windows specific redistributable libraries
-  - copy "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\redist\\x86\\Microsoft.VC140.CRT\\msvcp140.dll"; c:\libsmu\32
-  - copy "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\redist\\x86\\Microsoft.VC140.CRT\\vcruntime140.dll"; c:\libsmu\32
-  - copy "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\redist\\x64\\Microsoft.VC140.CRT\\msvcp140.dll"; c:\libsmu\64
-  - copy "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\redist\\x64\\Microsoft.VC140.CRT\\vcruntime140.dll"; c:\libsmu\64
-  - copy "C:\\Program Files (x86)\\Windows Kits\\10\\Redist\\ucrt\DLLs\\x86\\*" c:\libsmu\32
-  - copy "C:\\Program Files (x86)\\Windows Kits\\10\\Redist\\ucrt\DLLs\\x64\\*" c:\libsmu\64
+  - copy "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\redist\\x86\\Microsoft.VC120.CRT\\msvcp120.dll"; c:\libsmu\32
+  - copy "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\redist\\x86\\Microsoft.VC120.CRT\\vcruntime120.dll"; c:\libsmu\32
+  - copy "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\redist\\x64\\Microsoft.VC120.CRT\\msvcp120.dll"; c:\libsmu\64
+  - copy "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\redist\\x64\\Microsoft.VC120.CRT\\vcruntime120.dll"; c:\libsmu\64
+  #- copy "C:\\Program Files (x86)\\Windows Kits\\10\\Redist\\ucrt\DLLs\\x86\\*" c:\libsmu\32
+  #- copy "C:\\Program Files (x86)\\Windows Kits\\10\\Redist\\ucrt\DLLs\\x64\\*" c:\libsmu\64
   - 7z a "c:\libsmu-%LIBSMU_VERSION%.zip" c:\libsmu
   - appveyor PushArtifact c:\libsmu-%LIBSMU_VERSION%.zip
 
@@ -138,7 +138,7 @@ build_script:
   - ps: pushd C:\projects\libsmu\bindings\python
   - set DISTUTILS_USE_SDK=1
   - set MSSdk=1
-  - set PATH=C:\Program Files (x86)\MSBuild\14.0\bin;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC;%PATH%
+  - set PATH=C:\Program Files (x86)\MSBuild\12.0\bin;C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC;%PATH%
 
   - "vcvarsall.bat x86"
   - "python setup.py build_ext --compiler=msvc -L ../../32/src/%CONFIGURATION% -I C:\\libusb\\libusb"
