@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dest',['Dest',['../libsmu_8hpp.html#ad4593b4c52cdd612196c0ae699d0d123',1,'libsmu.hpp']]]
+  ['mode',['Mode',['../libsmu_8hpp.html#a46c8a310cf4c094f8c80e1cb8dc1f911',1,'libsmu.hpp']]]
 ];

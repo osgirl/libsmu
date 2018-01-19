@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['unlock',['unlock',['../classsmu_1_1Device.html#af14e11dc0cb616590e3a7497030860ed',1,'smu::Device']]]
+  ['triangle',['triangle',['../classsmu_1_1Signal.html#a15460a06be125bd67559818a5215e9ab',1,'smu::Signal']]]
 ];
